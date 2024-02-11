@@ -1,0 +1,54 @@
+
+application:
+  name: "cliente-service"
+  server:
+    host: localhost
+    port: 8081
+server:
+  port: ${application.server.port}
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+    consul:
+      config:
+        import-check:
+          enabled: false
+        fail-fast: false # if not in "prod" profile, do not force to use Spring Cloud Config
+        format: yaml
+        profile-separator: '-'
+      discovery:
+        healthCheckPath: /health
+        instanceId: ${application.name}:${random.value}
+        service-name: ${application.name}
+        prefer-ip-address: true
+        tags:
+          - git-version=${git.commit.id.describe:}
+          - git-commit=${git.commit.id.abbrev:}
+          - git-branch=${git.branch:}
+      host: localhost
+      port: 8500
+  serialization:
+    indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/devsu?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
+    username: root
+    password: password
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+# Habilitar el registro de la conexión a la base de datos
+logging:
+  level:
+    org.springframework.jdbc.datasource: INFO
+
+

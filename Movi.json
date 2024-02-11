@@ -1,0 +1,1183 @@
+{
+	"info": {
+		"_postman_id": "b4d52a65-2f18-4cc0-a92b-96f073d93cea",
+		"name": "OpenAPI definition Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32431884"
+	},
+	"item": [
+		{
+			"name": "movimientos",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "get Movimiento",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/movimientos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movimientos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/movimientos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movimientos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"fecha\": \"<dateTime>\",\n  \"tipoMovimiento\": \"AHORROS\",\n  \"valor\": \"<number>\",\n  \"saldo\": \"<number>\",\n  \"cuenta\": {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "update Movimiento",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"fecha\": \"<dateTime>\",\n  \"tipoMovimiento\": \"AHORROS\",\n  \"valor\": \"<number>\",\n  \"saldo\": \"<number>\",\n  \"cuenta\": {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/movimientos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movimientos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"fecha\": \"<dateTime>\",\n  \"tipoMovimiento\": \"AHORROS\",\n  \"valor\": \"<number>\",\n  \"saldo\": \"<number>\",\n  \"cuenta\": {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/movimientos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movimientos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"fecha\": \"<dateTime>\",\n  \"tipoMovimiento\": \"AHORROS\",\n  \"valor\": \"<number>\",\n  \"saldo\": \"<number>\",\n  \"cuenta\": {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "delete Movimiento",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/movimientos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movimientos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/movimientos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movimientos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "partial Update Movimiento",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"fecha\": \"<dateTime>\",\n  \"tipoMovimiento\": \"AHORROS\",\n  \"valor\": \"<number>\",\n  \"saldo\": \"<number>\",\n  \"cuenta\": {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/movimientos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movimientos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"fecha\": \"<dateTime>\",\n  \"tipoMovimiento\": \"AHORROS\",\n  \"valor\": \"<number>\",\n  \"saldo\": \"<number>\",\n  \"cuenta\": {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/movimientos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movimientos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"fecha\": \"<dateTime>\",\n  \"tipoMovimiento\": \"AHORROS\",\n  \"valor\": \"<number>\",\n  \"saldo\": \"<number>\",\n  \"cuenta\": {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get All Movimientos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/movimientos?page=<integer>&size=<integer>&sort=<string>,<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"movimientos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "<integer>",
+									"description": "(Required) "
+								},
+								{
+									"key": "size",
+									"value": "<integer>",
+									"description": "(Required) "
+								},
+								{
+									"key": "sort",
+									"value": "<string>,<string>",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/movimientos?page=<integer>&size=<integer>&sort=<string>,<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movimientos"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "<integer>",
+											"description": "(Required) "
+										},
+										{
+											"key": "size",
+											"value": "<integer>",
+											"description": "(Required) "
+										},
+										{
+											"key": "sort",
+											"value": "<string>,<string>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<long>\",\n    \"fecha\": \"<dateTime>\",\n    \"tipoMovimiento\": \"CORRIENTE\",\n    \"valor\": \"<number>\",\n    \"saldo\": \"<number>\",\n    \"cuenta\": {\n      \"id\": \"<long>\",\n      \"numeroCuenta\": \"<long>\",\n      \"tipoCuenta\": \"AHORROS\",\n      \"saldoInicial\": \"<number>\",\n      \"estado\": \"<boolean>\",\n      \"cliente\": {\n        \"id\": \"<long>\",\n        \"nombre\": \"<string>\",\n        \"edad\": \"<integer>\",\n        \"identificacion\": \"<string>\",\n        \"direccion\": \"<string>\",\n        \"telefono\": \"<string>\",\n        \"contrasena\": \"<string>\",\n        \"estado\": \"<boolean>\"\n      },\n      \"movimientoList\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"<long>\",\n    \"fecha\": \"<dateTime>\",\n    \"tipoMovimiento\": \"AHORROS\",\n    \"valor\": \"<number>\",\n    \"saldo\": \"<number>\",\n    \"cuenta\": {\n      \"id\": \"<long>\",\n      \"numeroCuenta\": \"<long>\",\n      \"tipoCuenta\": \"AHORROS\",\n      \"saldoInicial\": \"<number>\",\n      \"estado\": \"<boolean>\",\n      \"cliente\": {\n        \"id\": \"<long>\",\n        \"nombre\": \"<string>\",\n        \"edad\": \"<integer>\",\n        \"identificacion\": \"<string>\",\n        \"direccion\": \"<string>\",\n        \"telefono\": \"<string>\",\n        \"contrasena\": \"<string>\",\n        \"estado\": \"<boolean>\"\n      },\n      \"movimientoList\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n        }\n      ]\n    }\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "create Movimiento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"numeroCuenta\": \"<long>\",\n  \"tipoMovimiento\": \"CORRIENTE\",\n  \"saldo\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"valor\": \"<number>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/movimientos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"movimientos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"numeroCuenta\": \"<long>\",\n  \"tipoMovimiento\": \"CORRIENTE\",\n  \"saldo\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"valor\": \"<number>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/movimientos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movimientos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<long>\",\n  \"fecha\": \"<dateTime>\",\n  \"tipoMovimiento\": \"AHORROS\",\n  \"valor\": \"<number>\",\n  \"saldo\": \"<number>\",\n  \"cuenta\": {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "cuentas",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "get Cuenta",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/cuentas/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cuentas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/cuentas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"cuentas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"cliente\": {\n    \"id\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"identificacion\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"contrasena\": \"<string>\",\n    \"estado\": \"<boolean>\"\n  },\n  \"movimientoList\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "update Cuenta",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"cliente\": {\n    \"id\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"identificacion\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"contrasena\": \"<string>\",\n    \"estado\": \"<boolean>\"\n  },\n  \"movimientoList\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/cuentas/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cuentas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"cliente\": {\n    \"id\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"identificacion\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"contrasena\": \"<string>\",\n    \"estado\": \"<boolean>\"\n  },\n  \"movimientoList\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/cuentas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"cuentas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"cliente\": {\n    \"id\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"identificacion\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"contrasena\": \"<string>\",\n    \"estado\": \"<boolean>\"\n  },\n  \"movimientoList\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "delete Cuenta",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/cuentas/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cuentas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/cuentas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"cuentas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "<string>"
+								}
+							]
+						},
+						{
+							"name": "partial Update Cuenta",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"cliente\": {\n    \"id\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"identificacion\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"contrasena\": \"<string>\",\n    \"estado\": \"<boolean>\"\n  },\n  \"movimientoList\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/cuentas/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cuentas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"cliente\": {\n    \"id\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"identificacion\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"contrasena\": \"<string>\",\n    \"estado\": \"<boolean>\"\n  },\n  \"movimientoList\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/cuentas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"cuentas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"cliente\": {\n    \"id\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"identificacion\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"contrasena\": \"<string>\",\n    \"estado\": \"<boolean>\"\n  },\n  \"movimientoList\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get All Cuentas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cuentas?page=<integer>&size=<integer>&sort=<string>,<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cuentas"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "<integer>",
+									"description": "(Required) "
+								},
+								{
+									"key": "size",
+									"value": "<integer>",
+									"description": "(Required) "
+								},
+								{
+									"key": "sort",
+									"value": "<string>,<string>",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/cuentas?page=<integer>&size=<integer>&sort=<string>,<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cuentas"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "<integer>",
+											"description": "(Required) "
+										},
+										{
+											"key": "size",
+											"value": "<integer>",
+											"description": "(Required) "
+										},
+										{
+											"key": "sort",
+											"value": "<string>,<string>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"numeroCuenta\": \"<long>\",\n    \"tipoCuenta\": \"AHORROS\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"cliente\": {\n      \"id\": \"<long>\",\n      \"nombre\": \"<string>\",\n      \"edad\": \"<integer>\",\n      \"identificacion\": \"<string>\",\n      \"direccion\": \"<string>\",\n      \"telefono\": \"<string>\",\n      \"contrasena\": \"<string>\",\n      \"estado\": \"<boolean>\"\n    },\n    \"movimientoList\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n      }\n    ]\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "create Cuenta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<long>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cuentas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<long>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/cuentas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cuentas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<long>\",\n  \"numeroCuenta\": \"<long>\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": \"<number>\",\n  \"estado\": \"<boolean>\",\n  \"cliente\": {\n    \"id\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"identificacion\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"contrasena\": \"<string>\",\n    \"estado\": \"<boolean>\"\n  },\n  \"movimientoList\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/Movimiento detected>\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "reportes",
+			"item": [
+				{
+					"name": "get Movimiento Reports",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reportes?desde=<date>&hasta=<date>&clienteId=<long>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "desde",
+									"value": "<date>",
+									"description": "(Required) "
+								},
+								{
+									"key": "hasta",
+									"value": "<date>",
+									"description": "(Required) "
+								},
+								{
+									"key": "clienteId",
+									"value": "<long>",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reportes?desde=<date>&hasta=<date>&clienteId=<long>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reportes"
+									],
+									"query": [
+										{
+											"key": "desde",
+											"value": "<date>",
+											"description": "(Required) "
+										},
+										{
+											"key": "hasta",
+											"value": "<date>",
+											"description": "(Required) "
+										},
+										{
+											"key": "clienteId",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"movimiento\": \"<number>\",\n    \"numeroCuenta\": \"<long>\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"fecha\": \"<dateTime>\",\n    \"nombreCliente\": \"<string>\",\n    \"tipo\": \"CORRIENTE\",\n    \"saldoDisponible\": \"<number>\"\n  },\n  {\n    \"movimiento\": \"<number>\",\n    \"numeroCuenta\": \"<long>\",\n    \"saldoInicial\": \"<number>\",\n    \"estado\": \"<boolean>\",\n    \"fecha\": \"<dateTime>\",\n    \"nombreCliente\": \"<string>\",\n    \"tipo\": \"CORRIENTE\",\n    \"saldoDisponible\": \"<number>\"\n  }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "health",
+			"item": [
+				{
+					"name": "get Health",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/health",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/health",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"health"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8083"
+		}
+	]
+}
