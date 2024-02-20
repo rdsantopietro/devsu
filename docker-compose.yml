@@ -2,17 +2,24 @@ version: '3.8'
 
 services:
   mysql:
+    container_name: mysql-devsu
     image: mysql:latest
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: devsu
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+    env_file:
+      - .env
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 3305:8080
+    environment:
+      ADMINER_DEFAULT_USERNAME: root
+      ADMINER_DEFAULT_PASSWORD: password
 
   kafka:
     image: wurstmeister/kafka:latest
@@ -47,5 +54,38 @@ services:
     ports:
       - "80:80"
 
+  cliente-service:
+    container_name: cliente_devsu
+    build:
+      context: ./cliente
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+    ports:
+      - "${CLIENTE_SERVICE_PORT}:${CLIENTE_SERVICE_PORT}"
+    depends_on:
+      - mysql
+
+
+  movimiento-service:
+    container_name: movimiento_devsu
+    build:
+      context: ./movimiento
+      dockerfile: Dockerfile
+    environment:
+      JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+    env_file:
+      - .env
+    ports:
+      - "${MOVIMIENTO_SERVICE_PORT}:${MOVIMIENTO_SERVICE_PORT}"
+      - 5005:5005
+    depends_on:
+      - mysql
+      - cliente-service
+
 volumes:
   mysql_data:
+
+

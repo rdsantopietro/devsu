@@ -8,12 +8,13 @@ import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
 
 public interface EstadoCuentaReportResponseDTO {
 
-     Instant getFecha();
+     Timestamp getFecha();
 
      String getNombreCliente();
 
@@ -23,7 +24,7 @@ public interface EstadoCuentaReportResponseDTO {
 
      BigDecimal getSaldoInicial();
 
-     Boolean getEstado();
+     Byte getEstado();
 
      BigDecimal getMovimiento();
 

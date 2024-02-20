@@ -1,0 +1,29 @@
+application:
+  server:
+    port: ${CLIENTE_SERVICE_PORT}
+server:
+  port: ${application.server.port}
+spring:
+  cloud:
+    consul:
+      discovery:
+        health-check-interval: 90s
+      host: ${CONSUL_HOST}
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/devsu?allowPublicKeyRetrieval=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+logging:
+  level:
+    root: INFO
+    org:
+      springframework: DEBUG
+      hibernate: DEBUG
+    com:
+      devsu:
+        cliente: DEBUG
+      io:
+        springcloud:
+          consul: INFO
+
+

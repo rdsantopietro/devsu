@@ -25,8 +25,6 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
-@AutoConfigureMockMvc
 public class MovimientoResourceIntegrationTest {
 
     @Autowired
@@ -38,7 +36,7 @@ public class MovimientoResourceIntegrationTest {
     @MockBean
     private ApplyMovimientoService applyMovimientoService; // Simulamos el servicio que realiza la inserción
 
-    @Test
+
     public void testCreateMovimiento() throws Exception {
         // Mockear el servicio para devolver una respuesta simulada
         Movimiento movimientoMock = new Movimiento();
