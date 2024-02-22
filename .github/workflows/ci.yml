@@ -26,3 +26,5 @@ jobs:
         cd movimiento
         mvn clean package
         docker build . --file ./Dockerfile --tag my-first-image-name:$(date +%s)
+        docker push rdsantopietro/movimiento:latest
+
