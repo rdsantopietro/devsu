@@ -34,5 +34,5 @@ jobs:
      steps:
      - name: Push image to Docker Hub
        run: |
-         docker login --username ${{vars.DOCKER_USER}} --password ${{secrets.DOCKER_PASSWORD}}
+         echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username rdsantopietro@gmail.com --password-stdin
          run: docker push rdsantopietro/movimiento:latest
