@@ -6,8 +6,15 @@ application:
 server:
   port: ${application.server.port}
 spring:
+  application:
+    name: ${application.name}
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8080"
+
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:19092
     consumer:
       group-id: my-group
   cloud:
@@ -56,4 +63,11 @@ logging:
   level:
     org.springframework.jdbc.datasource: INFO
 
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true

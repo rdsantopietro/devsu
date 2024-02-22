@@ -17,7 +17,7 @@ public class NotificationMessagingListenerServiceImpl implements MessagingListen
     private ConcurrentKafkaListenerContainerFactory concurrentKafkaListenerContainerFactoryM;
 
     @Override
-    @KafkaListener(id = "myListener", topics = "new-account")
+    @KafkaListener( id = "myListener", topics = "new-account")
     public void listenMessage(String message) {
         log.info("Listening message: " + message);
     }

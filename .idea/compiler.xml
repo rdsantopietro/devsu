@@ -9,11 +9,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="movimiento" />
         <module name="cliente" />
+        <module name="adminer" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="adminer" options="-parameters" />
       <module name="cliente" options="-parameters" />
       <module name="movimiento" options="-parameters" />
     </option>

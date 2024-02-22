@@ -4,6 +4,10 @@ application:
 server:
   port: ${application.server.port}
 spring:
+  boot:
+    admin:
+      client:
+        url: ${ADMINER_SERVICE_HOST}:${ADMINER_SERVICE_PORT}
   kafka:
     bootstrap-servers: ${KAFKA_HOST}:${KAFKA_PORT}s
   cloud:
