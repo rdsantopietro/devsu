@@ -18,7 +18,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
@@ -27,6 +26,7 @@ jobs:
 
     - name: Build the Docker image in the movimiento directory
       run: |
+        echo $DOCKER_USER
         cd movimiento
         mvn clean package
         docker build . --file ./Dockerfile --tag rdsantopietro/movimiento:latest
