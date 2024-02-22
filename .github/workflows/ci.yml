@@ -1,6 +1,6 @@
 name: Docker Image CI
 env:
-    DOCKER_USER: ${{ secrets.DOCKER_USER }}
+    DOCKER_USER: ${{ env.DOCKER_USER }}
     DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 on:
@@ -30,8 +30,13 @@ jobs:
         cd movimiento
         mvn clean package
         docker build . --file ./Dockerfile --tag rdsantopietro/movimiento:latest
-
+  
+  push:
+    runs-on: ubuntu-latest
+    steps:
     - name: Push image to Docker Hub
       run: |
+        echo DOCKER_USER
+        echo DOCKER_PASSWORD
         docker login --username DOCKER_USER --password DOCKER_PASSWORD
         run: docker push rdsantopietro/movimiento:latest
