@@ -98,13 +98,11 @@ services:
       JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
     ports:
       - "${CLIENTE_SERVICE_PORT}:${CLIENTE_SERVICE_PORT}"
-    depends_on:
-      - mysql
     deploy:
       resources:
         limits:
           memory: 512M
-          cpus: '0.25'
+          cpus: '0.5'
 
 
   movimiento-service:
@@ -119,14 +117,11 @@ services:
     ports:
       - "${MOVIMIENTO_SERVICE_PORT}:${MOVIMIENTO_SERVICE_PORT}"
       - 5005:5005
-    depends_on:
-      - mysql
-      - cliente-service
     deploy:
       resources:
         limits:
           memory: 512M
-          cpus: '0.25'
+          cpus: '0.5'
 
 volumes:
   mysql_data:
