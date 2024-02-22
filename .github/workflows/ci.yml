@@ -15,13 +15,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDKs
-      run: |
-        echo "variable: ${{ vars.DOCKER_USER }}"
-        echo "env: ${{ env.DOCKER_USER }}"
-        echo "secreto: ${{ secrets.DOCKER_PASSWORD }}"
-
-    - uses: actions/checkout@v3
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
@@ -31,17 +24,17 @@ jobs:
     - name: Build the Docker image in the movimiento directory
       run: |
         echo "variable: ${{ env.DOCKER_USER }}"
-  #     cd movimiento
-  #      mvn clean package
-  #      docker build . --file ./Dockerfile --tag rdsantopietro/movimiento:latest
+        cd movimiento
+        mvn clean package
+        docker build . --file ./Dockerfile --tag rdsantopietro/movimiento:latest
   
-  # push:
-  #   runs-on: ubuntu-latest
-  #   needs: build 
-  #   steps:
-  #   - name: Push image to Docker Hub
-  #     run: |
-  #       echo $DOCKER_USER
-  #       echo $DOCKER_PASSWORD
-  #       docker login --username DOCKER_USER --password DOCKER_PASSWORD
-  #       run: docker push rdsantopietro/movimiento:latest
+  push:
+     runs-on: ubuntu-latest
+     needs: build 
+     steps:
+     - name: Push image to Docker Hub
+       run: |
+         echo $DOCKER_USER
+         echo $DOCKER_PASSWORD
+         docker login --username ${{vars.DOCKER_USER}} --password ${{secrets.DOCKER_PASSWORD}}
+         run: docker push rdsantopietro/movimiento:latest
