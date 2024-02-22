@@ -18,6 +18,7 @@
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/utils/ClienteRest.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/CuentaCreateService.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/config/FeignConfiguration.java
+/home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/messaging/MessagingSendService.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/crud/impl/MovimientoServiceImpl.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/rest/ReportesResource.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/impl/SaldoValidatorImpl.java
@@ -30,11 +31,15 @@
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/CuentaSearchByClienteIdService.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/error/NonExistingCuenta.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/error/SaldoInsuficienteException.java
+/home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/config/messaging/KafkaConsumerConfig.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/utils/DateUtils.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/impl/CuentaCreateServiceImpl.java
+/home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/messaging/impl/MessagingSendServiceKafkaImpl.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/rest/util/ResponseUtil.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/report/CuentaEstadoReportService.java
+/home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/config/messaging/KafkaProducerConfig.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/report/impl/CuentaEstadoReportServiceImpl.java
+/home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/messaging/MessagingListenerService.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/ClienteService.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/enums/GeneroEnum.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/impl/CuentaSearchByClienteIdServiceImpl.java
@@ -48,4 +53,5 @@
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/repository/report/ReportRepository.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/crud/CuentaService.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/dto/CreateMovimientoDTO.java
+/home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/service/messaging/impl/NotificationMessagingListenerServiceImpl.java
 /home/coco/www/devsu2/devsu/movimiento/src/main/java/com/devsu/movimiento/MovimientoApplication.java

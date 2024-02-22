@@ -7,17 +7,25 @@ import com.devsu.movimiento.service.CuentaCreateService;
 import com.devsu.movimiento.service.crud.CuentaService;
 import com.devsu.movimiento.service.error.MoreThanOneResultException;
 import com.devsu.movimiento.service.error.NonExistingCliente;
+import com.devsu.movimiento.service.messaging.MessagingSendService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CuentaCreateServiceImpl implements CuentaCreateService {
 
     @Autowired
-    CuentaService cuentaService;
+    private CuentaService cuentaService;
 
     @Autowired
-    ClienteService clienteService;
+    private ClienteService clienteService;
+
+    @Autowired
+    private MessagingSendService messagingService;
+
+    @Value("${messaging.queues.notification.new-account}")
+    private String queque;
 
     public Cuenta create(CreateCuentaDTO createCuentaDTO) throws MoreThanOneResultException, NonExistingCliente{
         Cuenta cuenta = Cuenta.builder()
@@ -27,6 +35,10 @@ public class CuentaCreateServiceImpl implements CuentaCreateService {
                 .cliente(clienteService.searchClienteById(createCuentaDTO.getClienteId()))
                 .estado(createCuentaDTO.getEstado())
                 .build();
-        return cuentaService.save(cuenta);
+        Cuenta result = cuentaService.save(cuenta);
+
+        messagingService.sendMessage(queque, cuenta.toString());
+
+        return result;
     };
 }

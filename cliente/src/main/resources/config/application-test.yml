@@ -4,6 +4,8 @@ application:
 server:
   port: ${application.server.port}
 spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_HOST}:${KAFKA_PORT}s
   cloud:
     consul:
       discovery:
@@ -17,11 +19,11 @@ logging:
   level:
     root: INFO
     org:
-      springframework: DEBUG
-      hibernate: DEBUG
+      springframework: INFO
+      hibernate: INFO
     com:
       devsu:
-        cliente: DEBUG
+        cliente: INFO
       io:
         springcloud:
           consul: INFO
