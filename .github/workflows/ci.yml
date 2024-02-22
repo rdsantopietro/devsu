@@ -35,4 +35,4 @@ jobs:
      - name: Push image to Docker Hub
        run: |
          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username rdsantopietro@gmail.com --password-stdin
-         run: docker push rdsantopietro/movimiento:latest
+         docker push rdsantopietro/movimiento:latest
