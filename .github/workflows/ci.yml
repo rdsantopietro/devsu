@@ -18,6 +18,7 @@ jobs:
     - name: Set up JDKs
       run: |
         echo "variable: ${{ vars.DOCKER_USER }}"
+        echo "env: ${{ env.DOCKER_USER }}"
         echo "secreto: ${{ secrets.DOCKER_PASSWORD }}"
 
     - uses: actions/checkout@v3
