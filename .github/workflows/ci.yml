@@ -1,6 +1,6 @@
 name: Docker Image CI
 env:
-    DOCKER_USER: ${{ variables.DOCKER_USER }}
+    DOCKER_USER: ${{ vars.DOCKER_USER }}
     DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 on:
