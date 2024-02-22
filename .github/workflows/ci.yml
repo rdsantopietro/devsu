@@ -21,7 +21,7 @@ jobs:
 
     - name: Build the Docker image in the movimiento directory
       run: |
-        docker login -u rdsantopietro@gmail.com --password ${{ secrets.DOCKER_PASSWORD}}
+        docker login -u rdsantopietro@gmail.com --password-stdin ${{ secrets.DOCKER_PASSWORD }}
         docker push rdsantopietro/movimiento:latest
       #  cd movimiento
       # mvn clean package
