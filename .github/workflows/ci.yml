@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "ci" ]
 env:
-  TIMESTAMP: ${{ github.run_number }}-${{ github.run_id }}
+  TIMESTAMP: $(date +'%Y-%m-%d_%H-%M-%S')
 jobs:
   
 
