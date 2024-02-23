@@ -41,7 +41,7 @@ jobs:
      - name: executing remote ssh commands using password
        uses: appleboy/ssh-action@master
        with:
-        host: ${{ vars.SSH_HOST }}
+        host: ${{ vars.AWS_HOST }}
         username: ubuntu
         key: ${{ secrets.SSH_EC2_AWS_PRIVATE_KEY }}
         script: |
