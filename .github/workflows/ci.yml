@@ -43,6 +43,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_EC2_AWS_PRIVATE_KEY }}
 
+      - name: Add remote host to known_hosts
+        run: ssh-keyscan -H ec2-107-21-189-154.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+
+
       - name: SSH into the host and download Docker image
         run: |
           ssh ubuntu@ec2-107-21-189-154.compute-1.amazonaws.com "docker pull movimiento"
