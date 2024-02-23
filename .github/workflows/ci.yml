@@ -5,16 +5,16 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+env:
+  TIMESTAMP: ${{ github.run_number }}-${{ github.run_id }}
 jobs:
+  
 
   build:
 
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
@@ -25,4 +25,36 @@ jobs:
       run: |
         cd movimiento
         mvn clean package
-        docker build . --file ./Dockerfile --tag my-first-image-name:$(date +%s)
+        docker build . --file ./Dockerfile --tag rdsantopietro/movimiento:${{ env.TIMESTAMP }}
+  
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+         username: ${{ vars.DOCKER_USER }}
+         password: ${{ secrets.DOCKER_PASSWORD }}
+         
+    - name: Build and push Docker image
+      run: docker push rdsantopietro/movimiento:${{ env.TIMESTAMP }}
+  
+  
+  pull:
+    runs-on: ubuntu-latest
+    needs: build  
+    steps:
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_EC2_AWS_PRIVATE_KEY }}
+
+      - name: Add remote host to known_hosts
+        run: ssh-keyscan -H ec2-107-21-189-154.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+
+
+      - name: SSH into the host and download Docker image
+        run: |
+          ssh ubuntu@ec2-107-21-189-154.compute-1.amazonaws.com "docker pull rdsantopietro/movimiento:${{ env.TIMESTAMP }}"
+    
+         
+      
+          
+       
