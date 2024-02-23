@@ -5,8 +5,10 @@ on:
     branches: [ "ci" ]
   pull_request:
     branches: [ "ci" ]
-
+env:
+  TIMESTAMP: ${{ github.run_number }}-${{ github.run_id }}
 jobs:
+  
 
   build:
 
@@ -23,7 +25,7 @@ jobs:
       run: |
         cd movimiento
         mvn clean package
-        docker build . --file ./Dockerfile --tag rdsantopietro/movimiento
+        docker build . --file ./Dockerfile --tag rdsantopietro/movimiento:${{ env.TIMESTAMP }}
   
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
@@ -32,7 +34,7 @@ jobs:
          password: ${{ secrets.DOCKER_PASSWORD }}
          
     - name: Build and push Docker image
-      run: docker push rdsantopietro/movimiento:latest
+      run: docker push rdsantopietro/movimiento:${{ env.TIMESTAMP }}
   
   
   pull:
@@ -49,7 +51,7 @@ jobs:
 
       - name: SSH into the host and download Docker image
         run: |
-          ssh ubuntu@ec2-107-21-189-154.compute-1.amazonaws.com "docker pull rdsantopietro/movimiento"
+          ssh ubuntu@ec2-107-21-189-154.compute-1.amazonaws.com "docker pull rdsantopietro/movimiento:${{ env.TIMESTAMP }}"
     
          
       
