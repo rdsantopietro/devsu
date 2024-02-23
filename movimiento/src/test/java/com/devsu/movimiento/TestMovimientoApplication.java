@@ -19,14 +19,6 @@ public class TestMovimientoApplication {
 		return new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:latest"));
 	}
 
-	@Bean
-	@ServiceConnection
-	MySQLContainer<?> mysqlContainer() {
-		MySQLContainer<?> mysqlContainer = new MySQLContainer<>(DockerImageName.parse("mysql:latest"));
-		mysqlContainer.start();
-		return mysqlContainer;
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.from(MovimientoApplication::main).with(TestMovimientoApplication.class).run(args);
 	}

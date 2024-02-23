@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="createTableCuenta" author="you">
+        <createTable tableName="cuenta">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="numero_cuenta" type="BIGINT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tipo_cuenta" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="saldo_inicial" type="DECIMAL(21,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="estado" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cliente_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="addForeignKeyConstraintCuenta" author="you">
+        <addForeignKeyConstraint baseTableName="cuenta"
+                                 baseColumnNames="cliente_id"
+                                 referencedTableName="cliente"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_cuenta_cliente"/>
+    </changeSet>
+
+    <changeSet id="createTableMovimiento" author="you">
+        <createTable tableName="movimiento">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="fecha" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tipo_movimiento" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valor" type="DECIMAL(21,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="saldo" type="DECIMAL(21,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cuenta_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="addForeignKeyConstraintMovimiento" author="you">
+        <addForeignKeyConstraint baseTableName="movimiento"
+                                 baseColumnNames="cuenta_id"
+                                 referencedTableName="cuenta"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_movimiento_cuenta"/>
+    </changeSet>
+</databaseChangeLog>

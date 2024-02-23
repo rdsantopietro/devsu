@@ -2,50 +2,128 @@ version: '3.8'
 
 services:
   mysql:
+    container_name: mysql-devsu
     image: mysql:latest
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: devsu
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+    env_file:
+      - .env
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
 
-  kafka:
-    image: wurstmeister/kafka:latest
+  adminer:
+    image: adminer
     restart: always
     ports:
-      - "9092:9092"
+      - 3305:8080
     environment:
-      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://localhost:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
-      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
-      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      ADMINER_DEFAULT_USERNAME: root
+      ADMINER_DEFAULT_PASSWORD: password
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
 
   zookeeper:
-    image: wurstmeister/zookeeper:latest
-    restart: always
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    hostname: kafka-broker-1
+    ports:
+      - "19092:19092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker-1:9092,PLAINTEXT_INTERNAL://localhost:19092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
+
 
   consul:
     image: consul:1.15.4
     restart: always
     ports:
       - "8500:8500"
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
 
   gateway:
-    # Configura tu contenedor para el gateway aquí
-    # Por ejemplo, puedes usar una imagen de nginx o spring cloud gateway
-    # Consulta la documentación oficial de la herramienta que elijas para obtener instrucciones detalladas
     image: nginx:latest
     restart: always
     ports:
       - "80:80"
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
+
+  cliente-service:
+    container_name: cliente_devsu
+    build:
+      context: ./cliente
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+    ports:
+      - "${CLIENTE_SERVICE_PORT}:${CLIENTE_SERVICE_PORT}"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+
+
+  movimiento-service:
+    container_name: movimiento_devsu
+    build:
+      context: ./movimiento
+      dockerfile: Dockerfile
+    environment:
+      JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+    env_file:
+      - .env
+    ports:
+      - "${MOVIMIENTO_SERVICE_PORT}:${MOVIMIENTO_SERVICE_PORT}"
+      - 5005:5005
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
 
 volumes:
   mysql_data:
+
+
