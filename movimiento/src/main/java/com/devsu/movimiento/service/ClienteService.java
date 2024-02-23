@@ -7,6 +7,6 @@ import com.devsu.movimiento.service.error.NonExistingCliente;
 public interface ClienteService {
 
 
-    Cliente searchClienteById(Long clienteId) throws MoreThanOneResultException, NonExistingCliente;;
+    Cliente searchClienteById(Long clienteId) throws MoreThanOneResultException, NonExistingCliente;
 
 }

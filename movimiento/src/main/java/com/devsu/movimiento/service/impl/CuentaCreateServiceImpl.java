@@ -40,5 +40,5 @@ public class CuentaCreateServiceImpl implements CuentaCreateService {
         messagingService.sendMessage(queque, cuenta.toString());
 
         return result;
-    };
+    }
 }
