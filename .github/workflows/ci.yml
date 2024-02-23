@@ -33,19 +33,20 @@ jobs:
          
     - name: Build and push Docker image
       run: docker push rdsantopietro/movimiento:latest
-
-
+  
+  
   pull:
     runs-on: ubuntu-latest
     steps:
-     - name: executing remote ssh commands using password
-       uses: appleboy/ssh-action@master
-       with:
-        host: ${{ vars.AWS_HOST }}
-        username: ubuntu
-        key: ${{ secrets.SSH_EC2_AWS_PRIVATE_KEY }}
-        script: |
-                 docker pull movimiento   
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: SSH into the host and download Docker image
+        run: |
+          ssh -i /path/to/private/key.pem ubuntu@${{ vars.AWS_HOST }} "docker pull movimiento"
+    
          
       
           
