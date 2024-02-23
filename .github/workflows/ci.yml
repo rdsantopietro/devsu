@@ -39,13 +39,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install SSH key
-        uses: appleboy/ssh-action@master
+        uses:  uses: webfactory/ssh-agent@v0.9.0
         with:
-          key: ${{ secrets.SSH_EC2_AWS_PRIVATE_KEY }}
+          ssh-private-key:: ${{ secrets.SSH_EC2_AWS_PRIVATE_KEY }}
 
       - name: SSH into the host and download Docker image
         run: |
-          ssh -i /path/to/private/key.pem ubuntu@${{ vars.AWS_HOST }} "docker pull movimiento"
+          ssh -i /path/to/private/key.pem ubuntu@ec2-107-21-189-154.compute-1.amazonaws.com "docker pull movimiento"
     
          
       
