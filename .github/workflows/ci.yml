@@ -45,7 +45,7 @@ jobs:
 
       - name: SSH into the host and download Docker image
         run: |
-          ssh -i /path/to/private/key.pem ubuntu@ec2-107-21-189-154.compute-1.amazonaws.com "docker pull movimiento"
+          ssh ubuntu@ec2-107-21-189-154.compute-1.amazonaws.com "docker pull movimiento"
     
          
       
