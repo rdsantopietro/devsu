@@ -1,0 +1,38 @@
+application:
+  name: "adminer-service"
+  server:
+    host: localhost
+    port: 8090
+server:
+  port: ${application.server.port}
+keycloak:
+  auth-server-url: http://localhost:8082/auth
+  realm: devsu
+  resource: admin-service
+  bearer-only: true
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+    consul:
+      config:
+        import-check:
+          enabled: false
+        fail-fast: false # if not in "prod" profile, do not force to use Spring Cloud Config
+        format: yaml
+        profile-separator: '-'
+      discovery:
+        healthCheckPath: /health
+        instanceId: ${application.name}:${random.value}
+        service-name: ${application.name}
+        prefer-ip-address: true
+        tags:
+          - git-version=${git.commit.id.describe:}
+          - git-commit=${git.commit.id.abbrev:}
+          - git-branch=${git.branch:}
+      host: localhost
+      port: 8500
+

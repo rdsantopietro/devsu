@@ -20,7 +20,7 @@ import java.util.List;
  * REST controller for managing reportes}.
  */
 @RestController
-@RequestMapping("/reportes")
+@RequestMapping("/movimientos/reportes")
 public class ReportesResource {
 
     private final Logger log = LoggerFactory.getLogger(ReportesResource.class);
