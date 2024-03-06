@@ -9,11 +9,15 @@
         <option value="$PROJECT_DIR$/adminer/admin/pom.xml" />
         <option value="$PROJECT_DIR$/adminer/untitled/pom.xml" />
         <option value="$PROJECT_DIR$/adminer/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway (2)/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/gateway/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/adminer/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/gateway/pom.xml" />
       </set>
     </option>
   </component>

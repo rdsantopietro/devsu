@@ -17,7 +17,7 @@ services:
           memory: 256M
           cpus: '0.5'
 
-  adminer:
+  mysql_adminer:
     image: adminer
     restart: always
     ports:
@@ -100,11 +100,11 @@ services:
       JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
     ports:
       - "${CLIENTE_SERVICE_PORT}:${CLIENTE_SERVICE_PORT}"
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-          cpus: '1'
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 256M
+#          cpus: '1'
 
 
   movimiento-service:
@@ -120,11 +120,11 @@ services:
     ports:
       - "${MOVIMIENTO_SERVICE_PORT}:${MOVIMIENTO_SERVICE_PORT}"
       - 5005:5005
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-          cpus: '1'
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 256M
+#          cpus: '1'
 
   adminer-service:
     restart: always
@@ -135,12 +135,43 @@ services:
     env_file:
       - .env
     ports:
-      - "${ADMINER_SERVICE_PORT}:${ADMINER_SERVICE_PORT}"
+      - "${ADMINER_SERVICE_PORT}:8080"
     deploy:
       resources:
         limits:
           memory: 128M
           cpus: '1'
+
+
+  gateway-service:
+    container_name: gateway_devsu
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: consul
+    ports:
+      - "${GATEWAY_PORT}:${GATEWAY_PORT}"
+    
+
+  keycloak:
+    image: jboss/keycloak:latest
+    restart: unless-stopped
+    environment:
+      JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+      KEYCLOAK_USER: user
+      KEYCLOAK_PASSWORD: password
+      DB_ADDR: ${MYSQL_HOST}
+      DB_USER: root
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      DB_PORT: ${MYSQL_PORT}
+      DB_DATABASE: ${KEYCLOAK_DATABASE}
+      #JDBC_PARAMS: "allowPublicKeyRetrieval=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true"
+    ports:
+      - 8181:8080
+
 
 volumes:
   mysql_data:

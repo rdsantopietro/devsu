@@ -16,6 +16,7 @@ spring:
     bootstrap-servers: localhost:19092
     consumer:
       group-id: my-group
+
   cloud:
     gateway:
       discovery:
@@ -71,7 +72,7 @@ messaging:
     notification:
       new-account: new-account
 
-  kafka: true
+  kafka: false
 
 management:
  endpoints:

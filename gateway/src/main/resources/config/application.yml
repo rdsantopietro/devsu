@@ -1,0 +1,49 @@
+application:
+  name: gateway-service
+
+spring:
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8090"
+  application:
+    name: gateway-service
+  cloud:
+    consul:
+      config:
+        enabled: true
+      host: localhost
+      port: 8500
+    gateway:
+      discovery:
+        instanceId: ${application.name}:${random.value}
+        locator:
+          enabled: true
+      routes:
+        - id: clientes-resource
+          uri: lb://cliente-service/clientes/
+          predicates:
+            - Path=/clientes/**
+        - id: movimiento-resource
+          uri: lb://movimiento-service/movimientos/
+          predicates:
+            - Path=/movimientos/**
+        - id: cuenta-resource
+          uri: lb://movimiento-service/cuentas/
+          predicates:
+            - Path=/cuentas/**
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.core.codec.StringDecoder: TRACE
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
