@@ -2,6 +2,21 @@ application:
   name: gateway-service
 
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: gateway
+            client-secret: PA7yzvF7OYykVl7p3Us6Hrbsd16JVGTQ
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/keycloak
+            scope: openid, profile, email
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8181/auth/realms/devsu
+  main:
+    web-application-type: reactive
   boot:
     admin:
       client:
@@ -39,6 +54,10 @@ server:
 logging:
   level:
     org.springframework.core.codec.StringDecoder: TRACE
+    org:
+      springframework:
+        security: DEBUG
+        keycloak: DEBUG
 management:
   endpoints:
     web:
@@ -47,3 +66,5 @@ management:
   info:
     env:
       enabled: true
+
+
